@@ -1,0 +1,63 @@
+{
+  "builders": [
+	{
+    "name": "kali-20",
+	  "type": "virtualbox-ovf",
+    "format": "ova", 
+	  "source_path": "Kali-Linux-2.0.0-vbox-amd64.ova",
+	  "ssh_username": "root",
+	  "ssh_password": "toor",
+	  "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+    "boot_wait": "3s",
+    "boot_command": [
+      "<esc><down><enter>",
+      "<down><enter>",
+      "<wait10>",
+      "toor<enter>",
+      "<wait5>",
+
+      "adduser vagrant <enter>",
+      "vagrant<enter>",
+      "vagrant<enter>",
+      "<enter><enter><enter><enter><enter><enter><enter><enter>",
+
+      "ifconfig eth0 up <enter>",
+      "dhclient eth0 <enter>",
+
+      "sed -e '/PermitRootLogin/s/^/#/' /etc/ssh/sshd_config > /etc/ssh/sshd_config.new <enter>",
+      "mv /etc/ssh/sshd_config.new /etc/ssh/sshd_config <enter>",
+      "/etc/init.d/ssh start <enter>",
+      "update-rc.d ssh enable <enter>"
+    ]
+	}
+  ],
+  "provisioners": [
+    {
+      "execute_command": "echo '{{ user `ssh_password` }}' | sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "script/root.sh",
+        "script/base.sh",
+        "script/virtualbox.sh",
+        "script/vagrant.sh",
+        "script/puppet.sh",
+        "script/cleanup.sh",
+        "script/zerodisk.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "compression_level": 1,
+      "override": {
+        "virtualbox": {
+          "compression_level": 0
+        }
+      }
+    }
+  ]
+}
+
+
+
