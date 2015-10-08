@@ -14,6 +14,12 @@ The following software must be installed/present on your local machine before yo
 
     $ packer build template.json
 
+### To point to a different apt mirror
+
+	Copy the desired sources.list file to localised_source_list:
+
+	$ packer build -var 'sources_list=australia' template.json
+
 ## License
 
 GPLv3.

@@ -1,4 +1,7 @@
 {
+  "variables":  {
+    "sources_list": "default"
+  },
   "builders": [
 	{
     "name": "kali-20",
@@ -33,9 +36,15 @@
   ],
   "provisioners": [
     {
+      "type": "file",
+      "source": "localised_sources_list/{{user `sources_list`}}",
+      "destination": "/tmp/sources.list"
+    },
+    {
       "execute_command": "echo '{{ user `ssh_password` }}' | sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "script/root.sh",
+        "script/apt.sh",
         "script/base.sh",
         "script/virtualbox.sh",
         "script/vagrant.sh",

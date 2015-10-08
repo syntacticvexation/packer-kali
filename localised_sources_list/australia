@@ -1,0 +1,4 @@
+deb http://mirror.internode.on.net/pub/kali kali main non-free contrib
+deb-src http://mirror.internode.on.net/pub/kali kali main non-free contrib
+
+deb http://security.kali.org/kali-security kali/updates main contrib non-free
