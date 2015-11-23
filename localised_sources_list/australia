@@ -1,4 +1,4 @@
-deb http://mirror.internode.on.net/pub/kali kali main non-free contrib
-deb-src http://mirror.internode.on.net/pub/kali kali main non-free contrib
+deb http://mirror.aarnet.edu.au/pub/kali/kali sana main non-free contrib
+deb-src http://mirror.aarnet.edu.au/pub/kali/kali sana main non-free contrib
 
-deb http://security.kali.org/kali-security kali/updates main contrib non-free
+deb http://mirror.aarnet.edu.au/pub/kali/kali-security sana/updates main contrib non-free
