@@ -6,6 +6,7 @@ DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt-get -q -y -o "Dpkg::
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libssl-dev libreadline-gplv2-dev libyaml-dev libyaml-0-2
 apt-get -y install curl unzip vim
+apt-get -y install ruby-dev
 
 # Set up sudo
 echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant
