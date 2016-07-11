@@ -1,6 +1,6 @@
-# Kali 2.0 Packer Vagrant Box
+# Kali 2.0/Rolling Packer Vagrant Box
 
-A basic Packer definition for Kali Linux 2.0 to build a Vagrant box.
+A basic Packer definition for Kali Linux 2.0/Rolling to build a Vagrant box.
 
 ## Requirements
 
