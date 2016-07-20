@@ -4,7 +4,7 @@
   },
   "builders": [
 	{
-    "name": "kali-20",
+    "name": "kali-2016-1",
 	  "type": "virtualbox-ovf",
     "format": "ova", 
 	  "source_path": "Kali-Linux-2016.1-vbox-amd64.ova",
